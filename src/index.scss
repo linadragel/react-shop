@@ -8,6 +8,10 @@ body {
   background-color: #e7f6ff;
 }
 
+* {
+  font-family: 'Inter';
+}
+
 .wrapper {
   background: #ffffff;
   box-shadow: 0px 10px 20px (0.0 0.0 0.0 0.4);
@@ -40,6 +44,10 @@ header {
   border-radius: 40px;
   margin-right: 30px;
 
+  &:hover {
+    box-shadow: 0px 10px 20px rgba($color: #969696, $alpha: 1.0);
+  }
+
   span {
     font-size: 13px;
     opacity: 0.5;
@@ -54,6 +62,7 @@ header {
     font-weight: 400;
     font-size: 14px;
   }
+
 }
 
 .button {
@@ -64,4 +73,137 @@ header {
   height: 32px;
   width: 32px;
   cursor: pointer;
+}
+
+.search-block {
+  border: 1px solid #f3f3f3;
+  border-radius: 10px;
+  padding: 0 15px;
+
+  input {
+    border: 0;
+    padding: 13px;
+    font-size: 16px;
+    width: 200px;
+  }
+}
+
+.footer {
+  border-top: 1px solid #eaeaea;
+}
+
+.unliked {
+  background: #ffffff;
+  border: 1px solid #f2f2f2;
+  box-sizing: border-box;
+  border-radius: 8px;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+}
+
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color: #88878733, $alpha: 0.7);
+  z-index: 1;
+}
+
+.shopping-drawer {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 420px;
+  height: 100%;
+  right: 0;
+  background: #ffffff;
+  padding: 30px;
+
+  h2 {
+    margin: 0;
+    font-size: 24px;
+
+    img {
+      cursor: pointer;
+    }
+
+  }
+
+  .items {
+    flex: 1;
+    overflow: auto;
+  }
+}
+
+.cart-total-block {
+  ul {
+    li {
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: 20px;
+  
+    div {
+      flex: 1;
+      height: 1;
+      border-bottom: 1px dashed #dfdfdf;
+      margin: 0 5px;
+    }
+  }
+}
+
+}
+
+.blue-button {
+    width: 100%;
+    height: 55px;
+    background: #75a4ef;
+    border-radius: 18px;
+    border: 0;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+
+    &:hover {
+      background: lighten($color: #75a4ef, $amount: 10);
+    }
+  
+}
+
+.cart-item {
+  border: 1px solid #f3f3f3;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 20px;
+
+  .cart-item-img {
+    height: 70px;
+    width: 70px;
+    background-size: contain;
+    background-position: 0 -3px;
+    background-repeat: no-repeat;
+    margin-right: 20px;
+
+  }
+  p {
+    font-size: 16px;
+    margin: 0;
+  }
+
+  b {
+    font-size: 14px;
+  }
+
+  .remove-btn {
+    opacity: 0.5;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
 }
