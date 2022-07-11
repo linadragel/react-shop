@@ -2,6 +2,14 @@ import Card from './components/Card';
 import Header from './components/Header';
 import Drawer from './components/Drawer';
 
+
+const arr = [
+{ title: 'iPhone 9', price: 549, imageUrl: '/img/products/cameratest.png'},
+{ title: 'iPhone X', price: 899, imageUrl: '/img/products/cameratest.png'},
+{ title: 'Samsung Universe 9', price: 1249, imageUrl: '/img/products/cameratest.png'},
+{ title: 'OPPOF19', price: 280, imageUrl: '/img/products/cameratest.png'},
+];
+
 function App() {
   return (
     <div className="wrapper clear">
@@ -20,16 +28,18 @@ function App() {
       </div>
     </div>
 
-{/* products list*/}
     <div className="d-flex">
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-    </div>
-    </div>
+      <div className="d-flex">
+        {arr.map ((obj) => (
+          <Card title={obj.title} price={obj.price} imageUrl={obj.imageUrl} onClick={() => console.log(obj)}/>
+        ))}
+        
 
-{/* footer */}
+      </div>
+    </div>
+  </div>
+
+
     <footer className="d-flex justify-around align-center p-20">
       <div>
         <ul className="d-flex">
