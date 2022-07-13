@@ -1,6 +1,9 @@
+import {Link} from 'react-router-dom';
+
 function Header(props) {
     return(
         <header className="d-flex justify-between align-center p-40">
+<Link to="/">
         <div className="d-flex align-center">
            <img width={40} height={40} src="/img/logo.png"/>
            <div>
@@ -8,6 +11,7 @@ function Header(props) {
              <p>Everything you need</p>
            </div>
         </div>
+</Link>
      {/*right side of header  */}
          <ul className="d-flex ">
            <li onClick={props.onClickCart} className="mr-20 cu-p">
@@ -16,6 +20,12 @@ function Header(props) {
              <path d="M21 6L21.75 3.5M14.008 11H12.008M10.008 11H12.008M12.008 11V9M12.008 11V13M13 19.5C13 19.8978 13.158 20.2794 13.4393 20.5607C13.7206 20.842 14.1022 21 14.5 21C14.8978 21 15.2794 20.842 15.5607 20.5607C15.842 20.2794 16 19.8978 16 19.5M7 19.5C7 19.8978 7.15804 20.2794 7.43934 20.5607C7.72065 20.842 8.10218 21 8.5 21C8.89782 21 9.27936 20.842 9.56066 20.5607C9.84196 20.2794 10 19.8978 10 19.5M21 6H2L5 16H18L21 6Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
              <span>0 eur.</span>
            </li>
+      {/* favorites */}
+           <li className=" mr-20 cu-p">
+              <Link to="/favorites">
+                <img width={24} height={24} src="/img/heart.svg" alt="heart"/>
+              </Link>
+            </li>
            <li className="mr-10">
       {/* picture "user profile" */}       
              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
