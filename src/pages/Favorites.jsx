@@ -1,7 +1,7 @@
 import Card from '../components/Card';
 
 
-function Home({items, searchValue, setSearchValule, onChangeSearchInput, onAddToFavorite, onAddToCart }) {
+function Favorites() {
 
     return (
 
@@ -29,7 +29,7 @@ function Home({items, searchValue, setSearchValule, onChangeSearchInput, onAddTo
             ))}    
         </div>
     </div>
-</div>
+    </div>
 )};
 
-export default Home;
+export default Favorites;

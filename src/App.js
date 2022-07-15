@@ -16,13 +16,7 @@ function App() {
   const [searchValue, setSearchValue] = React.useState('');
   const [cartOpened, setCartOpened] = React.useState(false);
 
-  // React.useEffect(() => {
-  //   fetch('https://62cd3988066bd2b699213508.mockapi.io/items').then(res => {
-  //     return res.json();
-  //   })
-  //   .then((json) => {
-  //     setItems(json);
-  //   });
+
   React.useEffect(() => {
     axios.get('https://62cd3988066bd2b699213508.mockapi.io/items',).then((res) =>{
       setItems(res.data);
@@ -39,7 +33,7 @@ function App() {
   };
 
   const onRemoveItem = (id) => {
-    axios.delete(`https://62cd3988066bd2b699213508.mockapi.io/cart${id}`);
+    axios.delete(`https://62cd3988066bd2b699213508.mockapi.io/cart/${id}`);
     setCartItems((prev) => prev.filter(item => item.id !== id));
   };
 
@@ -61,6 +55,7 @@ const onChangeSearchInput = (event) => {
     <div className="wrapper clear">
       {cartOpened && <Drawer items={cartItems} onClose={() => setCartOpened(false)} onRemove={onRemoveItem} />}     
       <Header onClickCart = {() => setCartOpened(true)} />
+
       
       <Switch>
         <Route path="/" exact>        
@@ -71,10 +66,14 @@ const onChangeSearchInput = (event) => {
           onAddToFavorite={onAddToFavorite}
           onAddToCart={onAddToCart} />
         </Route>
-        <Route path="/notfound" exact>        
+
+        <Route path="*">        
           <NotFound />
         </Route>
+
       </Switch>
+   
+
         
     
 
