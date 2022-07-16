@@ -1,6 +1,7 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
 import axios from 'axios';
+import "@stripe/stripe-js";
 import Card from './components/Card';
 import Header from './components/Header';
 import Drawer from './components/Drawer'; 
@@ -30,8 +31,6 @@ function App() {
     axios.get('https://62cd3988066bd2b699213508.mockapi.io/favorites',).then((res) =>{
       setFavorites(res.data);
     } );
-
-
   }, []);
 
   const onAddToCart = (obj) => {
@@ -45,12 +44,16 @@ function App() {
   };
 
   const onAddToFavorite = async (obj) => {
-    if (favorites.find((favObj) => favObj.id == obj.id)) {
-      axios.delete(`/favorites/${obj.id}`);
-      setFavorites((prev) => prev.filter((item) => item.id !== obj.id));
-    } else {
-      const { data } = await axios.post('https://62cd3988066bd2b699213508.mockapi.io/favorites', obj);
-      setFavorites((prev) => [ ...prev, data]);
+    try {
+      if (favorites.find((favObj) => favObj.id == obj.id)) {
+        axios.delete(`/favorites/${obj.id}`);
+        setFavorites((prev) => prev.filter((item) => item.id !== obj.id));
+      } else {
+        const { data } = await axios.post('https://62cd3988066bd2b699213508.mockapi.io/favorites', obj);
+        setFavorites((prev) => [ ...prev, data]);
+      }
+    } catch (error) {
+      alert('Not able to ad to favorites')
     }
   };
 
