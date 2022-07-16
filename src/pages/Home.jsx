@@ -17,9 +17,12 @@ function Home({items, searchValue, setSearchValule, onChangeSearchInput, onAddTo
 
     <div className="d-flex">
         <div className="d-flex flex-wrap">
-            {items.filter( item => item.title.toLowerCase().includes(searchValue)).map ((item, index) => (
+            {items
+            .filter( item => item.title.toLowerCase().includes(searchValue))
+            .map ((item, index) => (
             <Card 
             key={index}
+            id={item.id}
             title={item.title} 
             price={item.price} 
             imageUrl={item.imageUrl}
